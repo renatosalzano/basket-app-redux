@@ -39,6 +39,7 @@ header {
   border-radius: 0 0 20px 20px;
   background: var(--accent-color);
   h1 {
+    user-select: none;
     font-size: 22px;
     padding: 0 10px;
     color: var(--header-color);

@@ -1,8 +1,16 @@
-import React from "react";
 import Header from "./layout/Header";
+import Main from "./layout/Main";
 import "./styles/layout.scss";
 import "./styles/basket.scss";
-import Main from "./layout/Main";
+
+if (
+  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+    navigator.userAgent
+  )
+) {
+  require("./styles/layout-mobile.scss");
+  console.log("mobile");
+}
 
 function App() {
   return (

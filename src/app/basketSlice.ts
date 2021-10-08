@@ -1,6 +1,12 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-const initialState = {
+interface AppState {
+  pendings: any[];
+  purchased: any[];
+  isClear: boolean;
+}
+
+const initialState: AppState = {
   pendings: [],
   purchased: [],
   isClear: false,
@@ -65,18 +71,11 @@ export const basketSlice = createSlice({
   },
 });
 
-export const {
-  addItem,
-  removeItem,
-  incrementQuantity,
-  reduceQuantity,
-  buyProduct,
-  clearPendings,
-  toggleClear,
-} = basketSlice.actions;
+export const { addItem, removeItem, incrementQuantity, reduceQuantity, buyProduct, clearPendings, toggleClear } =
+  basketSlice.actions;
 
-export const selectPendings = (state) => state.basket.pendings;
-export const selectPurchased = (state) => state.basket.purchased;
-export const selectIsClear = (state) => state.basket.isClear;
+export const selectPendings = (state: any) => state.basket.pendings;
+export const selectPurchased = (state: any) => state.basket.purchased;
+export const selectIsClear = (state: any) => state.basket.isClear;
 
 export default basketSlice.reducer;

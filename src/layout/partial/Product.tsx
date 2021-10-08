@@ -3,19 +3,22 @@ import { IoIosAddCircleOutline } from "react-icons/io";
 import { useDispatch } from "react-redux";
 import { addItem } from "../../app/basketSlice";
 
-const Product = ({ product }) => {
-  const dispatch = useDispatch(addItem);
-  const [test, setTest] = useState(false);
+interface Props {
+  product: any;
+}
+const Product: React.FunctionComponent<Props> = ({ product }) => {
+  const dispatch = useDispatch();
+  const [reset, setReset] = useState(false);
   const add_item = () => {
     dispatch(addItem(product));
-    setTest(true);
+    setReset(true);
   };
   return (
     <div className="product">
       <span
-        className={`add-btn ${test ? "animate" : ""}`}
+        className={`add-btn ${reset ? "animate" : ""}`}
         onClick={add_item}
-        onAnimationEnd={() => setTest(false)}
+        onAnimationEnd={() => setReset(false)}
       >
         <IoIosAddCircleOutline />
       </span>
