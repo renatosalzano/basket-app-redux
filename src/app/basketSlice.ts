@@ -71,8 +71,15 @@ export const basketSlice = createSlice({
   },
 });
 
-export const { addItem, removeItem, incrementQuantity, reduceQuantity, buyProduct, clearPendings, toggleClear } =
-  basketSlice.actions;
+export const {
+  addItem,
+  removeItem,
+  incrementQuantity,
+  reduceQuantity,
+  buyProduct,
+  clearPendings,
+  toggleClear,
+} = basketSlice.actions;
 
 export const selectPendings = (state: any) => state.basket.pendings;
 export const selectPurchased = (state: any) => state.basket.purchased;
