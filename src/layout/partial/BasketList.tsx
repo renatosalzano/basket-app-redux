@@ -1,4 +1,4 @@
-import { memo, useRef } from "react";
+import { memo } from "react";
 import { VscArrowLeft } from "react-icons/vsc";
 import { useSelector } from "react-redux";
 import { selectPendings, selectIsClear } from "../../app/basketSlice";
