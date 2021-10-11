@@ -44,8 +44,10 @@ const BasketList: React.FunctionComponent<Props> = ({ toggle_list }) => {
 
   useEffect(() => {
     document.addEventListener("click", is_click_outside);
+    document.addEventListener("touchmove", is_click_outside);
     return () => {
       document.removeEventListener("click", is_click_outside);
+      document.removeEventListener("touchmove", is_click_outside);
     };
   }, [check_if_is_clear, is_click_outside]);
 
