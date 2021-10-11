@@ -1,13 +1,13 @@
-import { memo, useCallback } from "react";
+import { memo } from "react";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
-import { IoTrashBinSharp } from "react-icons/io5";
+import { VscChromeClose } from "react-icons/vsc";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  asyncDelete,
   buyProduct,
   clearPendings,
   incrementQuantity,
   reduceQuantity,
-  removeItem,
   selectIsClear,
   selectPendings,
   toggleClear,
@@ -17,10 +17,17 @@ export const LowerButtons: React.FunctionComponent = memo(() => {
   const dispatch = useDispatch();
   const isClear = useSelector(selectIsClear);
   const basket_list = useSelector(selectPendings);
-  const clear_all = () => {
-    dispatch(clearPendings());
-    return dispatch(toggleClear());
-  };
+
+  function clear_all() {
+    const basketList: HTMLElement | any = document.querySelector(".basket-list");
+    basketList?.classList.add("clear-all");
+    setTimeout(() => {
+      basketList.classList.remove("clear-all");
+      dispatch(clearPendings());
+      dispatch(toggleClear());
+    }, 200);
+    return;
+  }
 
   return (
     <div className="lower-button">
@@ -53,16 +60,18 @@ interface Props {
 
 export const QuantityBtns: React.FunctionComponent<Props> = memo(({ item }) => {
   const dispatch = useDispatch();
-  const reduce = useCallback(
-    (item: any) => {
-      if (item.count > 1) {
-        dispatch(reduceQuantity(item));
-      } else {
-        dispatch(removeItem(item));
-      }
-    },
-    [dispatch]
-  );
+  function delete_item(item: any) {
+    const li_item = document.querySelector(`.${item.name.replace(/ /g, "")}`);
+    li_item?.classList.add("remove-item");
+    dispatch(asyncDelete(item));
+  }
+  function reduce(item: any) {
+    if (item.count > 1) {
+      dispatch(reduceQuantity(item));
+    } else {
+      delete_item(item);
+    }
+  }
   return (
     <div className="li-buttons">
       <span className="plus" onClick={() => dispatch(incrementQuantity(item))}>
@@ -77,10 +86,15 @@ export const QuantityBtns: React.FunctionComponent<Props> = memo(({ item }) => {
 
 export const DeleteBtn: React.FunctionComponent<Props> = memo(({ item }) => {
   const dispatch = useDispatch();
+  function delete_item(item: any) {
+    const li_item = document.querySelector(`.${item.name.replace(/ /g, "")}`);
+    li_item?.classList.add("remove-item");
+    dispatch(asyncDelete(item));
+  }
   return (
     <div className="li-buttons">
-      <span className="trash" onClick={() => dispatch(removeItem(item))}>
-        <IoTrashBinSharp />
+      <span className="trash" onClick={() => delete_item(item)}>
+        <VscChromeClose />
       </span>
     </div>
   );

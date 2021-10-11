@@ -8,24 +8,44 @@ header,
   border-radius: 0;
 }
 
+.product {
+  height: 50px;
+  .add-btn {
+    width: 40px;
+    height: 40px;
+    cursor: default;
+  }
+}
+
 .basket-list {
+  position: fixed;
   top: 0;
   right: 0;
   width: 100%;
   .basket-head {
     height: 60px;
+    .close-btn {
+      height: 40px;
+      width: 40px;
+    }
   }
 }
 
 .li-buttons {
+  gap: 20px;
+
   span {
-    width: 40px;
+    width: 36px;
+    height: 36px;
+    padding: 8px;
+    cursor: default;
   }
 }
 .lower-button {
   span {
-    width: 60px;
-    height: 30px;
-    line-height: 26px;
+    width: 80px;
+    height: 40px;
+    line-height: 36px;
+    font-size: 18px;
   }
 }

@@ -14,6 +14,7 @@ const Purchased: React.FunctionComponent = () => {
   };
   return (
     <div className="purchased">
+      {purchased_list.length === 0 && <span className="message">There is nothing here...</span>}
       {purchased_list.map((item: any) => (
         <div key={item.date} className="purchased-list">
           <strong>{format_date(item.date)}</strong>

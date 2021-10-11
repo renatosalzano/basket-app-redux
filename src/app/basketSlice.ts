@@ -1,16 +1,24 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import asyncDeleteItem from "./asyncDeleteItem";
 
 interface AppState {
   pendings: any[];
   purchased: any[];
   isClear: boolean;
+  status: "idle" | "loading";
 }
 
 const initialState: AppState = {
   pendings: [],
   purchased: [],
   isClear: false,
+  status: "idle",
 };
+
+export const asyncDelete = createAsyncThunk("basket/delete", async (item: any) => {
+  const response = await asyncDeleteItem(item);
+  return response;
+});
 
 export const basketSlice = createSlice({
   name: "basket",
@@ -69,6 +77,18 @@ export const basketSlice = createSlice({
       state.isClear = !state.isClear;
     },
   },
+  extraReducers: (builder) => {
+    builder
+      .addCase(asyncDelete.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(asyncDelete.fulfilled, (state, action: PayloadAction<any>) => {
+        state.status = "idle";
+        state.pendings = state.pendings.filter((item) => {
+          return item.name !== action.payload.name;
+        });
+      });
+  },
 });
 
 export const {
@@ -84,5 +104,6 @@ export const {
 export const selectPendings = (state: any) => state.basket.pendings;
 export const selectPurchased = (state: any) => state.basket.purchased;
 export const selectIsClear = (state: any) => state.basket.isClear;
+export const selectStatus = (state: any) => state.basket.status;
 
 export default basketSlice.reducer;

@@ -20,7 +20,7 @@ const BasketBtn: React.FunctionComponent = () => {
           <span>{pendings.length}</span>
         </div>
       </div>
-      {showList && <BasketList triggerClick={toggle_list} />}
+      {showList && <BasketList toggle_list={toggle_list} />}
     </>
   );
 };

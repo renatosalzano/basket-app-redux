@@ -6,7 +6,7 @@ interface Props {
 
 const PurchasedList: React.FunctionComponent<Props> = ({ list = [] }) => {
   const get_total = () => {
-    const total = list.reduce((accumulator, current, currentIndex, array) => {
+    const total = list.reduce((accumulator, current) => {
       accumulator = accumulator + current.count;
       return accumulator;
     }, 0);
