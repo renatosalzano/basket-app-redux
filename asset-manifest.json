@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/basket-app-redux/static/css/main.8223078a.chunk.css",
+    "main.css": "/basket-app-redux/static/css/main.2973ecd0.chunk.css",
     "main.js": "/basket-app-redux/static/js/main.cb5880db.chunk.js",
     "main.js.map": "/basket-app-redux/static/js/main.cb5880db.chunk.js.map",
     "runtime-main.js": "/basket-app-redux/static/js/runtime-main.6fbfc86c.js",
@@ -8,13 +8,13 @@
     "static/js/2.15a4100f.chunk.js": "/basket-app-redux/static/js/2.15a4100f.chunk.js",
     "static/js/2.15a4100f.chunk.js.map": "/basket-app-redux/static/js/2.15a4100f.chunk.js.map",
     "index.html": "/basket-app-redux/index.html",
-    "static/css/main.8223078a.chunk.css.map": "/basket-app-redux/static/css/main.8223078a.chunk.css.map",
+    "static/css/main.2973ecd0.chunk.css.map": "/basket-app-redux/static/css/main.2973ecd0.chunk.css.map",
     "static/js/2.15a4100f.chunk.js.LICENSE.txt": "/basket-app-redux/static/js/2.15a4100f.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.6fbfc86c.js",
     "static/js/2.15a4100f.chunk.js",
-    "static/css/main.8223078a.chunk.css",
+    "static/css/main.2973ecd0.chunk.css",
     "static/js/main.cb5880db.chunk.js"
   ]
 }
