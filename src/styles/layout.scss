@@ -160,8 +160,14 @@ main {
   border: 1px solid var(--accent-color);
   border-radius: 20px;
   padding: 10px;
+  strong {
+    display: block;
+    margin-bottom: 4px;
+  }
   ul {
+    padding-left: 6px;
     span {
+      font-size: 14px;
       color: rgb(75, 75, 75);
     }
   }
