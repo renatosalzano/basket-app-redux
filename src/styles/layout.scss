@@ -43,16 +43,16 @@ header {
 
   border-radius: 0 0 20px 20px;
   background: var(--accent-color);
-  box-shadow: 0 2px 6px var(--gray-color);
-  --color1: rgb(255, 223, 187);
-  --color2: rgb(255, 197, 130);
-  --color3: rgb(255, 154, 40);
+  box-shadow: 0 1px 3px var(--shadow-color), 0 2px 6px var(--gray-color);
+  --color1: rgb(245, 208, 89);
+  --color2: rgb(245, 183, 89);
+  --color3: rgb(255, 169, 40);
   --color4: var(--warn-color);
   h1 {
     user-select: none;
     font-size: 28px;
     margin-bottom: 8px;
-    font-weight: 1000;
+    font-weight: 800;
     color: var(--header-color);
     text-shadow: 0 1px 0 var(--color1), 0 2px 0 var(--color2), 0 3px 0 var(--color3),
       0 4px 0px var(--warn-color), 0 7px 3px var(--shadow-color);
